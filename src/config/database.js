@@ -1,12 +1,12 @@
 module.exports = {
-  dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
+  dialect: "postgres",
+  host: "localhost",
+  username: "postgres",
   password: "secret",
-  database: 'node-jse-domain',
+  database: "develop",
   define: {
-    timestamps: true, // created_at and updated_at
-    underscored: true, // snake_case
+    timestamp: true, // cria duas colunas: createdAt e updatedAt
+    underscored: true,
     underscoredAll: true,
-  }
-}
+  },
+};
