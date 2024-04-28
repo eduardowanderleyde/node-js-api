@@ -12,7 +12,7 @@ class CustomersController {
   }; 
   //Recover a customer by id
   show(req, res) {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id, 10);
     const customer = customers.find(item => item.id === id);
     const status = customer ? 200 : 404;
 
@@ -32,20 +32,20 @@ class CustomersController {
   };
   //Update a customer
   update(req, res) {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id, 10);
     const { name, site } = req.body;
     const index = customers.findIndex(item => item.id === id);
     const status = index >= 0 ? 200 : 404;
 
     if(index >= 0){
-      customers[index] = { id, name, site };
+      customers[index] = { id: parseInt(id,10), name, site };
     }
     return res.status(status).json(customers[index]);
     
   };
   //Delete a customer
   destroy(req, res) {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id, 10);
     const index = customers.findIndex(item => item.id === id);
     const status = index >= 0 ? 200 : 404;
 
