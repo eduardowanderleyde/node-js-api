@@ -1,7 +1,8 @@
-const {Router} = require('express');
-const routes = new Router();
+import {Router} from "express";
 
-const customers = require('./app/controllers/CustomersController');
+import customers from"./app/controllers/CustomersController";
+
+const routes = new Router();
 
 routes.get("/customers", customers.index);
 routes.get("/customers/:id", customers.show);
@@ -10,4 +11,4 @@ routes.put("/customers/:id", customers.update);
 routes.delete("/customers/:id", customers.destroy);
 
 
-module.exports = routes;
+export default routes;
